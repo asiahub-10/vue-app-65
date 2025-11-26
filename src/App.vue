@@ -10,8 +10,9 @@ import Footer from './views/layouts/Footer.vue';
       <!-- <Navbar></Navbar> -->
       <Navbar />
       <main>
-        <Pricing />        
-        <ComparePlans />
+        <!-- <Pricing />
+        <ComparePlans /> -->
+        <router-view />
       </main>
       <Footer />
     </div>
