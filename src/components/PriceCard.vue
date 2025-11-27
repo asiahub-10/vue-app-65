@@ -15,11 +15,12 @@ defineProps({
         type: String,
         default: 'btn-primary'
     },
-    isDisabled: Boolean
+    isDisabled: Boolean,
+    id: Number
 });
 </script>
 <template>
-    <div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card mb-4 rounded-3 shadow-sm h-100">
         <div class="card-header py-3">
             <h4 class="my-0 fw-normal">{{title}}</h4>
         </div>
@@ -28,9 +29,9 @@ defineProps({
                 ${{price}}<small class="text-body-secondary fw-light">/mo</small>
             </h1>
             <slot>Same as free plan</slot>
-            <button type="button" :class="`w-100 btn btn-lg ${btnClass}`" :disabled="isDisabled">
+            <router-link :to="`/plan-details/${id}`" :class="`w-100 btn btn-lg ${btnClass}`" :disabled="isDisabled">
                 {{btn}}
-            </button>
+            </router-link>
         </div>
     </div>
 </template>

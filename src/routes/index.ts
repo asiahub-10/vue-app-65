@@ -3,6 +3,7 @@ import Pricing from '@/views/pages/Pricing.vue'
 import ComparePlans from '@/views/pages/ComparePlans.vue'
 import Home from '@/views/pages/Home.vue'
 import Form from '@/views/pages/Form.vue';
+import PlanDetails from '@/views/pages/PlanDetails.vue';
 
 const myRouter = createRouter({
     history: createWebHistory(),
@@ -11,6 +12,7 @@ const myRouter = createRouter({
         { path: '/price', component: Pricing },
         { path: '/compare-plans', component: ComparePlans },
         { path: '/form', component: Form },
+        { path: '/plan-details/:id', component: PlanDetails },
     ]
 });
 
