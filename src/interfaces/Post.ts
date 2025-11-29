@@ -1,5 +1,6 @@
 export interface Post {
     title: string;
     details: string;
-    isActive: boolean;
+    isActive?: boolean;
+    agree: boolean;
 }

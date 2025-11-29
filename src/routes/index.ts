@@ -4,6 +4,7 @@ import ComparePlans from '@/views/pages/ComparePlans.vue'
 import Home from '@/views/pages/Home.vue'
 import Form from '@/views/pages/Form.vue';
 import PlanDetails from '@/views/pages/PlanDetails.vue';
+import PostManage from '@/views/pages/posts/PostManage.vue';
 
 const myRouter = createRouter({
     history: createWebHistory(),
@@ -13,6 +14,7 @@ const myRouter = createRouter({
         { path: '/compare-plans', component: ComparePlans },
         { path: '/form', component: Form },
         { path: '/plan-details/:id', component: PlanDetails },
+        { path: '/posts', component: PostManage },
     ]
 });
 

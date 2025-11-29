@@ -16,16 +16,47 @@ function formSubmit() {
     // console.log("agree:", agree.value);
 }
 
-
 const post = reactive<Post>({
     title: "",
     details: '',
-    isActive: false
+    // isActive: false,
+    agree: false
 });
-function formSubmit2(){
+const error = reactive({
+    title: '',
+    details: '',
+    agree: ''
+});
+function formSubmit2(){ 
+    // const titleRegex = /^[a-zA-Z0-9 .-]{1,}$/;
+    const titleRegex = /^[a-zA-Z0-9 .-]+$/;
+    if(post.title === '') {
+        error.title = 'Title is required';
+    }else if(post.title.length < 2 || post.title.length > 20) {
+        error.title = 'Title must be between 2 and 20 characters';
+    }else if(!titleRegex.test(post.title)) {
+        error.title = 'Title must be alphanumeric, space . or -';
+    }else{
+        error.title = '';
+    }
+    if(post.details === '') {
+        error.details = 'Details is required';
+    }else{
+        error.details = '';
+    }
+    if(post.agree === false) {
+        error.agree = 'You must agree to terms and conditions';
+    }else{
+        error.agree = '';
+    }
+
+    if(error.title !== '' || error.details !== '' || error.agree !== ''){
+        return;
+    }
     console.log("Title:", post.title);
     console.log("Details:", post.details);
-    console.log("isActive:", post.isActive);
+    // console.log("isActive:", post.isActive);
+    alert("Submitted");
 }
 </script>
 
@@ -72,14 +103,21 @@ function formSubmit2(){
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Title</label>
                     <input type="text" class="form-control" v-model="post.title">
+                    <span class="text-danger">{{ error.title }}</span>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Details</label>
                     <textarea v-model="post.details" class="form-control"></textarea>
+                    <span class="text-danger">{{ error.details }}</span>
                 </div>
-                <div class="mb-3 form-check">
+                <!-- <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="isActive" v-model="post.isActive">
                     <label class="form-check-label" for="isActive">Active</label>
+                </div> -->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="postAgree" v-model="post.agree">
+                    <label class="form-check-label" for="postAgree">I agree to terms and conditions of the site</label><br>
+                    <span class="text-danger">{{ error.agree }}</span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit Form 2</button>
             </form>
