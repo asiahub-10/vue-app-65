@@ -5,6 +5,7 @@ import Home from '@/views/pages/Home.vue'
 import Form from '@/views/pages/Form.vue';
 import PlanDetails from '@/views/pages/PlanDetails.vue';
 import PostManage from '@/views/pages/posts/PostManage.vue';
+import PostDetails from '@/views/pages/posts/PostDetails.vue';
 
 const myRouter = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,7 @@ const myRouter = createRouter({
         { path: '/form', component: Form },
         { path: '/plan-details/:id', component: PlanDetails },
         { path: '/posts', component: PostManage },
+        { path: '/post/:id/details/:userid', component: PostDetails },
     ]
 });
 

@@ -4,10 +4,12 @@ import {reactive, ref} from "vue";
 import type {PostFake} from "@/interfaces/PostFake";
 
 let posts = ref<PostFake[]>([]);
+// let posts = reactive<PostFake[]>([]);
 
 axios.get('https://jsonplaceholder.typicode.com/posts')
 .then(response => {
     posts.value = response.data;
+    // posts.push(...response.data);
     console.log(posts);
 })
 .catch(error => {
@@ -33,8 +35,8 @@ axios.get('https://jsonplaceholder.typicode.com/posts')
                 <td>{{ post.title }}</td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="fa-regular fa-eye"></i></button>
+                        <router-link to="/post/:id" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></router-link>
+                        <router-link :to="`/post/${post.id}/details/${post.userId}`" class="btn btn-sm btn-outline-info"><i class="fa-regular fa-eye"></i></router-link>
                         <button class="btn btn-sm btn-outline-danger"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </td>
