@@ -17,6 +17,7 @@
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/compare-plans">Plans</router-link>
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/form">Form</router-link>
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/posts">Posts</router-link>
+                <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/categories">Category</router-link>
             </nav>
         </div>
     </header>
