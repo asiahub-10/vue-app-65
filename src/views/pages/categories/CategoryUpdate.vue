@@ -31,14 +31,15 @@ function handleSubmit(){
     let formData = new FormData();
     formData.append('name', item.value.name);
     formData.append('is_inactive', item.value.is_inactive.toString());
+    formData.append('_method', 'PUT');
 
-    axios.put(`http://127.0.0.1:8000/api/categories/${id}`, formData)
+    axios.post(`http://127.0.0.1:8000/api/categories/${id}`, formData)
     .then(response => {
         console.log(response.data);
     })
     .catch(error => {
-        console.log(error);
-        console.log(error.status);
+        // console.log(error);
+        // console.log(error.status);
         if(error.status === 400) {
             alert(error.response.data.message);
         }

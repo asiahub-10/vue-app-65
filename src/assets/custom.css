@@ -1,4 +1,7 @@
-body{
+body:not(.dark) {
     background-color: rgb(25, 23, 34);
     color: white;
+}
+.sidebar:not(.collasped) .toggle:hover{
+
 }
