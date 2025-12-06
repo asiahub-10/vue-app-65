@@ -42,7 +42,7 @@ import { useRouter } from 'vue-router';
                 <td>{{ item.is_inactive ? 'Inactive' : 'Active' }}</td>
                 <td>
                     <div class="btn-group">
-                        <router-link to="" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></router-link>
+                        <router-link :to="`/category/${item.id}/edit`" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></router-link>
                         <button class="btn btn-sm btn-outline-danger"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </td>

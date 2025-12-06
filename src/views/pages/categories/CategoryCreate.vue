@@ -34,7 +34,7 @@ function handleSubmit() {
 </script>
 
 <template>
-    <h3>Create New Post</h3>
+    <h3>Create New Category</h3>
     <form @submit.prevent=handleSubmit>
         <div class="mb-3">
             <label for="">Name</label>
