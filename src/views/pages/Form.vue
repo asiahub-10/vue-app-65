@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 import type { Post } from '@/interfaces/Post';
+import {useCounterStore} from '@/store/counter';
+const counter = useCounterStore();
+const count = ref(counter.count);
 
 const name = ref({id: 1, lastname: 'Asia'});
 const firstname = ref('');
@@ -58,9 +61,17 @@ function formSubmit2(){
     // console.log("isActive:", post.isActive);
     alert("Submitted");
 }
+function updateState() {
+    counter.count = count.value;
+    counter.setLocal();
+}
 </script>
 
 <template>
+    <div class="col-lg-6 mb-4">
+        <input type="number" class="form-control mb-2" v-model="count">
+        <input @click="updateState" type="button" class="btn btn-success" value="Update Count Value">
+    </div>
     <div class="row gy-4">
         <div class="col-md-6">
             <h3>Form 1 (ref)</h3>

@@ -5,7 +5,7 @@ const counter = useCounterStore();
 <template>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <router-link to="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94"
                     role="img">
                     <title>Bootstrap</title>
@@ -14,7 +14,7 @@ const counter = useCounterStore();
                         fill="currentColor"></path>
                 </svg>
                 <span class="fs-4">Vue App <span class="badge bg-primary">{{ counter.count }}</span></span>
-            </a>
+            </router-link>
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/">Home</router-link>
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/price">Pricing</router-link>

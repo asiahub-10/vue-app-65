@@ -10,6 +10,7 @@ import PostCreate from '@/views/pages/posts/PostCreate.vue';
 import CategoryManage from '@/views/pages/categories/CategoryManage.vue';
 import CategoryCreate from '@/views/pages/categories/CategoryCreate.vue';
 import CategoryUpdate from '@/views/pages/categories/CategoryUpdate.vue';
+import FormObject from '@/views/pages/FormObject.vue';
 
 const myRouter = createRouter({
     history: createWebHistory(),
@@ -18,6 +19,7 @@ const myRouter = createRouter({
         { path: '/price', component: Pricing },
         { path: '/compare-plans', component: ComparePlans },
         { path: '/form', component: Form },
+        { path: '/form2', component: FormObject },
         { path: '/plan-details/:id', component: PlanDetails },
         { path: '/posts', component: PostManage },
         { path: '/post/:id/details/:userid', component: PostDetails },
