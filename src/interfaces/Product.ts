@@ -8,6 +8,7 @@ export interface Product {
     discount?: number;
     quantity?: number;
     photo?: string;
+    photo_file?: File | null;
 }
 
 export const defaultProduct:Product = {
@@ -19,5 +20,6 @@ export const defaultProduct:Product = {
     price: 0,
     discount: 0,
     quantity: 0,
-    photo: ''
+    photo: '',
+    photo_file: null
 }

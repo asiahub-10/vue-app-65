@@ -12,6 +12,7 @@ import CategoryCreate from '@/views/pages/categories/CategoryCreate.vue';
 import CategoryUpdate from '@/views/pages/categories/CategoryUpdate.vue';
 import FormObject from '@/views/pages/FormObject.vue';
 import ProductManage from '@/views/pages/products/ProductManage.vue';
+import ProductCreate from '@/views/pages/products/ProductCreate.vue';
 
 const myRouter = createRouter({
     history: createWebHistory(),
@@ -29,6 +30,7 @@ const myRouter = createRouter({
         { path: '/category/create', component: CategoryCreate },
         { path: '/category/:id/edit', component: CategoryUpdate },
          { path: '/products', component: ProductManage },
+         { path: '/product/create', component: ProductCreate },
     ]
 });
 

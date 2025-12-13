@@ -17,7 +17,7 @@ import { baseURL } from '@/config/baseURL';
 
 <template>
     <h3>Product List</h3>
-    <router-link to="/category/create" class="btn btn-outline-dark mb-3">New Product</router-link>
+    <router-link to="/product/create" class="btn btn-outline-dark mb-3">New Product</router-link>
     <table class="table table-striped">
         <thead>
             <tr>
