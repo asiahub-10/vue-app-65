@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Category } from '@/interfaces/Category';
-import axios from 'axios';
+import {api} from '@/config/api';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -9,7 +9,7 @@ import { useRouter } from 'vue-router';
     let categories = ref<Category[]>([]);
 
     function getItems() {
-        axios.get('http://127.0.0.1:8000/api/categories')
+        api.get('categories')
         .then(response => {
             console.log(response.data);
             categories.value = response.data.categories;
@@ -27,7 +27,7 @@ import { useRouter } from 'vue-router';
         let confirmation = confirm('Are you sure to delete?');
 
         if(confirmation) {
-            axios.delete(`http://127.0.0.1:8000/api/categories/${id}`)
+            api.delete(`categories/${id}`)
             .then(response => {
                 console.log(response.data.message);
                 // categories.value = response.data.categories;
