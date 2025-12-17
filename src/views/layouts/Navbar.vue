@@ -1,6 +1,21 @@
 <script setup>
-    import {useCounterStore} from '@/store/counter';
+import { api } from '@/config/api';
+import {useCounterStore} from '@/store/counter';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const counter = useCounterStore();
+function handleLogout() {
+    api.post('logout')
+    .then(response => {
+        console.log(response.data);
+        if(response.status === 200) {
+            localStorage.removeItem('token');
+            router.push('/login');
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
 </script>
 <template>
     <header>
@@ -23,6 +38,7 @@ const counter = useCounterStore();
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/posts">Posts</router-link>
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/categories">Category</router-link>
                 <router-link class="me-3 py-2 link-body-emphasis text-decoration-none" to="/products">Product</router-link>
+                <button class="btn btn-sm btn-outline-secondary" @click="handleLogout">Logout</button>
             </nav>
         </div>
     </header>
